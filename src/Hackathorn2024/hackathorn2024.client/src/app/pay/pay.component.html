@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span>Available Balance: R1000.00</span>
+    </mat-card-title>
+  </mat-card-header>
+</mat-card>
+<div class="file-upload-container">
+  <mat-card class="file-upload-card" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+    <mat-card-header>
+      <mat-card-title>File Upload</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <input type="file" (change)="onFileSelected($event)" hidden>
+      <div class="file-drop-area" (click)="fileInput.click()" *ngIf="!files.length">
+        <mat-icon>cloud_upload</mat-icon>
+        <p>Drag & Drop files here<br>or click to select</p>
+      </div>
+      <div *ngIf="files.length">
+        <mat-list>
+          <mat-list-item *ngFor="let file of files">
+            <mat-icon mat-list-icon>insert_drive_file</mat-icon>
+            <h4 mat-line>{{ file.name }}</h4>
+            <p mat-line>{{ formatBytes(file.size) }}</p>
+          </mat-list-item>
+        </mat-list>
+        <button mat-raised-button color="primary" (click)="uploadFiles()">Upload</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
