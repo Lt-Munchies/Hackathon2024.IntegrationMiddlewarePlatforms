@@ -48,7 +48,7 @@ namespace Hackathorn2024.Server.Clients
 
         public async Task<UploadFileResponse> UploadFile(string filepath, CancellationToken token = default)
         {
-            using (var fileStream = File.OpenRead(filepath))
+            using (var fileStream = File.OpenRead("C:/testfiles/"+filepath))
             {
                 var form = new MultipartFormDataContent();
                 var fileContent = new StreamContent(fileStream);

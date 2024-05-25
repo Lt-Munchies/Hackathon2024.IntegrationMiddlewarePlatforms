@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../services/api.service";
 import {Account} from "../Models/Account";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pay',
@@ -11,8 +12,9 @@ export class PayComponent implements OnInit {
 
   accounts: Account[] = [];
   selectedAccount?: Account;
+  requestId: string = "";
 
-  constructor(private service: ApiService) {
+  constructor(private service: ApiService, private router: Router) {
     this.fileInput = document.createElement('input');
     this.fileInput.type = 'file';
     this.fileInput.addEventListener('change', this.onFileSelected.bind(this));
@@ -65,7 +67,13 @@ export class PayComponent implements OnInit {
 
   uploadFiles() {
     // Implement file upload logic here
-    console.log('Uploading files:', this.files);
+    console.log('Uploading files:', this.files[0].name);
+
+    this.service.uploadFile(this.files[0].name).subscribe(x => {
+      console.log(x);
+      this.router.navigateByUrl('/confirm');
+    });
+
     // Clear the files array after uploading
     this.files = [];
   }

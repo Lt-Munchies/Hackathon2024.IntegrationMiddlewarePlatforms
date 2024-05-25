@@ -20,12 +20,14 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import { PayComponent } from './pay/pay.component';
 import {MatList, MatListItem} from "@angular/material/list";
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PayComponent
+    PayComponent,
+    ConfirmComponent
   ],
   imports: [
     FormsModule, ReactiveFormsModule,

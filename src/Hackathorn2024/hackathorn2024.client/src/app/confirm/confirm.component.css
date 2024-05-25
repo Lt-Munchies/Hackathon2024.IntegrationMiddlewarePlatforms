@@ -1,0 +1,20 @@
+.payment-confirmation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.payment-confirmation-card {
+  width: 300px;
+}
+
+.confirmation-message {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.success-icon {
+  font-size: 24px;
+  color: green;
+}
