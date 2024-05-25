@@ -6,30 +6,23 @@ using Microsoft.Extensions.Options;
 
 namespace Hackathorn2024.Server.Clients;
 
-internal class InvestecClient : BaseHttpClient, IInvestecClient
+internal class InvestecClient(ILogger<InvestecClient> logger, IOptions<InvestecClientOptions> options, HttpClient client)
+    : BaseHttpClient(logger, client), IInvestecClient
 {
-    private readonly IOptions<InvestecClientOptions> _options;
-
-    public InvestecClient(ILogger<InvestecClient> logger, IOptions<InvestecClientOptions> options, HttpClient client) : base(logger, client)
-    {
-        _options = options;
-    }
-
-    public async Task<AccountResponse> GetAccountsAsync(CancellationToken token = default)
+    public async Task<GetAccountsResponse> GetAccountsAsync(CancellationToken token = default)
     {
         return await WrapRetryRequestAsync(async client =>
         {
             var request = client.WithHeader("Content-Type", "application/json")
                 .Request();
 
-            request.Url = new Url(_options.Value.Api)
+            request.Url = new Url(options.Value.Api)
                 .AppendPathSegment("za")
                 .AppendPathSegment("pb")
                 .AppendPathSegment("v1")
-                .AppendPathSegment("accounts")
-                .AppendPathSegment("beneficiaries");
+                .AppendPathSegment("accounts");
 
-            return await request.GetJsonAsync<AccountResponse>(cancellationToken: token);
+            return await request.GetJsonAsync<GetAccountsResponse>(cancellationToken: token);
         });
     }
 }
