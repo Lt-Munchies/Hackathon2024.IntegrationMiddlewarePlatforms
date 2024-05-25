@@ -21,15 +21,6 @@ export class PayComponent implements OnInit {
   ngOnInit(): void {
         this.service.getAccounts().subscribe(x => {
           this.accounts = x.data.accounts;
-          this.accounts = [
-            {
-              accountNumber: '0123',
-              accountName: 'Test',
-              accountId: '',
-              referenceName: '',
-              productName: ''
-            }
-          ]
         });
     }
 

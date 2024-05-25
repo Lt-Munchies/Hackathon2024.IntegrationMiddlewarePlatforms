@@ -8,7 +8,7 @@
         <mat-label>Select an Account</mat-label>
         <mat-select [(value)]="selectedAccount">
           <mat-option *ngFor="let account of accounts" [value]="account">
-            {{ account.accountName + ' (' + account.accountNumber + ')' }}
+            {{ account.productName + ' (' + account.accountNumber + ')' }}
           </mat-option>
         </mat-select>
       </mat-form-field>
