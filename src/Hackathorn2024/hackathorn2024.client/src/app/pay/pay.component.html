@@ -19,7 +19,7 @@
 <div *ngIf="selectedAccount !== undefined" class="file-upload-container">
   <mat-card class="file-upload-card" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
     <mat-card-header>
-      <mat-card-title>File Upload</mat-card-title>
+      <mat-card-title>Invoice Upload</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <input type="file" (change)="onFileSelected($event)" hidden>
