@@ -1,0 +1,6 @@
+@Hackathorn2024.Server_HostAddress = http://localhost:5189
+
+GET {{Hackathorn2024.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
