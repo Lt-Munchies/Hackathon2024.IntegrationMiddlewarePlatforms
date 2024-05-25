@@ -31,8 +31,7 @@
         <mat-list>
           <mat-list-item *ngFor="let file of files">
             <mat-icon mat-list-icon>insert_drive_file</mat-icon>
-            <h4 mat-line>{{ file.name }}</h4>
-            <p mat-line>{{ formatBytes(file.size) }}</p>
+            <h4 mat-line>{{ file.name }} </h4>
           </mat-list-item>
         </mat-list>
         <button mat-raised-button color="primary" (click)="uploadFiles()">Upload</button>

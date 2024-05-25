@@ -6,7 +6,7 @@
 }
 
 .file-upload-card {
-  width: 300px;
+  width: 600px;
 }
 
 .file-drop-area {
@@ -36,6 +36,10 @@
 }
 
 .account-selection-card {
-  width: 300px;
+  width: 600px;
+}
+
+.full-width {
+  width: 100%;
 }
 
