@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\repos\\Hackathon2024.IntegrationMiddlewarePlatforms\\src\\Hackathorn2024\\Hackathorn2024.Server\\..\\hackathorn2024.client",
+"WorkingDirectory": "C:\\DEV\\Hackathon2024.IntegrationMiddlewarePlatforms\\src\\Hackathorn2024\\Hackathorn2024.Server\\..\\hackathorn2024.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }
