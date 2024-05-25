@@ -22,18 +22,19 @@ namespace Hackathorn2024.Server.Clients
         {
             var data = new ChatRequest
             {
-                SourceId = sourceID,
-                Messages = new[]
+                sourceId = sourceID,
+                messages = new[]
             {
                 new Message
                 {
-                    Role = "user",
-                    Content = prompt
+                    role = "user",
+                    content = prompt
                 }
             }
             };
 
             var jsondata = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
             return await WrapRetryRequestAsync(async client =>
             {
                 var response = await client.Request(_options.Value.ChatEndpoint)
@@ -74,13 +75,13 @@ namespace Hackathorn2024.Server.Clients
 
     public class Message
     {
-        public string Role { get; set; }
-        public string Content { get; set; }
+        public string role { get; set; }
+        public string content { get; set; }
     }
 
     public class ChatRequest
     {
-        public string SourceId { get; set; }
-        public Message[] Messages { get; set; }
+        public string sourceId { get; set; }
+        public Message[] messages { get; set; }
     }
 }
