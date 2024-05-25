@@ -41,8 +41,11 @@ namespace Hackathorn2024.Server.Clients
                     .WithHeader("x-api-key", _options.Value.ApiKey)
                     .PostAsync(jsondata);
 
-                var responseBody = await response.GetStringAsync();
-                return JsonConvert.DeserializeObject<PromptResponse>(responseBody);
+                var y = await response.GetJsonAsync<ContentJson>();
+
+                var x = JsonConvert.DeserializeObject<PromptResponse>(y.Content);
+
+                return x;
             });
         }
 
@@ -83,5 +86,10 @@ namespace Hackathorn2024.Server.Clients
     {
         public string sourceId { get; set; }
         public Message[] messages { get; set; }
+    }
+
+    public class ContentJson
+    {
+        public string Content { get; set; }
     }
 }

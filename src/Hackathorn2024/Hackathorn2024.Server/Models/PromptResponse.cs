@@ -4,27 +4,34 @@ namespace Hackathorn2024.Server.Models
 {
     public class PromptResponse
     {
-        [JsonProperty("Business Name")]
+        [JsonProperty("BusinessName")]
         public string BusinessName { get; set; }
-        [JsonProperty("Bank Name")]
+
+        [JsonProperty("BankName")]
         public string BankName { get; set; }
-        [JsonProperty("Branch Name")]
+
+        [JsonProperty("BranchName")]
         public string BranchName { get; set; }
-        [JsonProperty("Branch Number")]
-        public string BranchNumber { get; set; }
-        [JsonProperty("Account Number")]
+
+        [JsonProperty("BranchNumber")]
+        public long BranchNumber { get; set; }
+
+        [JsonProperty("AccountNumber")]
         public string AccountNumber { get; set; }
-        [JsonProperty("Account Name")]
+
+        [JsonProperty("AccountName")]
         public string AccountName { get; set; }
-        [JsonProperty("Payment Reference")]
-        public string PaymentReference { get; set; }
-        [JsonProperty("Invoice Total")]
+
+        [JsonProperty("PaymentReference")]
+        public long PaymentReference { get; set; }
+
+        [JsonProperty("InvoiceTotal")]
         public string InvoiceTotal { get; set; }
     }
 
-    public class Content
+    public class Root
     {
-        [JsonProperty("content")]
-        public PromptResponse response { get; set; }
+        public PromptResponse Content { get; set; }
     }
+
 }
