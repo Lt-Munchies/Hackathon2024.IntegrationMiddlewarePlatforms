@@ -6,7 +6,7 @@
 }
 
 .file-upload-card {
-  width: 300px;
+  width: 600px;
 }
 
 .file-drop-area {
@@ -21,9 +21,25 @@
 }
 
 .file-drop-area mat-icon {
-  font-size: 48px;
+  font-size: 24px;
 }
 
 .file-drop-area p {
   margin-top: 10px;
 }
+
+.account-selection-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.account-selection-card {
+  width: 600px;
+}
+
+.full-width {
+  width: 100%;
+}
+

@@ -1,14 +1,25 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      <span>Available Balance: R1000.00</span>
-    </mat-card-title>
-  </mat-card-header>
-</mat-card>
-<div class="file-upload-container">
+<div *ngIf="selectedAccount === undefined" class="account-selection-container">
+  <mat-card class="account-selection-card">
+    <mat-card-header>
+      <mat-card-title>Account Selection</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <mat-label>Select an Account</mat-label>
+        <mat-select [(value)]="selectedAccount">
+          <mat-option *ngFor="let account of accounts" [value]="account">
+            {{ account.productName + ' (' + account.accountNumber + ')' }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onSelectAccount()">Select</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="selectedAccount !== undefined" class="file-upload-container">
   <mat-card class="file-upload-card" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
     <mat-card-header>
-      <mat-card-title>File Upload</mat-card-title>
+      <mat-card-title>Invoice Upload</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <input type="file" (change)="onFileSelected($event)" hidden>
@@ -20,8 +31,7 @@
         <mat-list>
           <mat-list-item *ngFor="let file of files">
             <mat-icon mat-list-icon>insert_drive_file</mat-icon>
-            <h4 mat-line>{{ file.name }}</h4>
-            <p mat-line>{{ formatBytes(file.size) }}</p>
+            <h4 mat-line>{{ file.name }} </h4>
           </mat-list-item>
         </mat-list>
         <button mat-raised-button color="primary" (click)="uploadFiles()">Upload</button>
