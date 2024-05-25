@@ -1,0 +1,29 @@
+.file-upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.file-upload-card {
+  width: 300px;
+}
+
+.file-drop-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.file-drop-area mat-icon {
+  font-size: 48px;
+}
+
+.file-drop-area p {
+  margin-top: 10px;
+}
