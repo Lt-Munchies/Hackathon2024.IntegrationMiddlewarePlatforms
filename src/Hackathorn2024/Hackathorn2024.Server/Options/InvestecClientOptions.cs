@@ -2,5 +2,5 @@
 
 public class InvestecClientOptions
 {
-    
+    public string Api { get; set; } = "goldfish-app-motvl.ondigitalocean.app";
 }
