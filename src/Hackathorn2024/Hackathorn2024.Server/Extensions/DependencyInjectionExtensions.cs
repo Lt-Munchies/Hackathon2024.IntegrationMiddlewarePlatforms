@@ -15,4 +15,14 @@ public static class DependencyInjectionExtensions
 
         return services;
     }
+
+    public static IServiceCollection AddPdfChatClient(this IServiceCollection services, IConfiguration configuration)
+    {
+        if (services.All(x => x.ServiceType != typeof(IConfigureOptions<PdfChatClientOptions>)))
+            services.AddOptions<PdfChatClientOptions>().BindConfiguration(nameof(PdfChatClientOptions));
+
+        services.AddHttpClient<IPdfChatClient, PdfClient>();
+
+        return services;
+    }
 }
