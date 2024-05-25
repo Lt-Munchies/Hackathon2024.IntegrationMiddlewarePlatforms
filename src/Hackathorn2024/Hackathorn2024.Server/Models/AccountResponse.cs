@@ -3,7 +3,12 @@
 namespace Hackathorn2024.Server.Models;
 
 // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-public class AccountResponse
+using System;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+public class GetAccountsResponse
 {
     [JsonProperty("data")]
     public Data Data { get; set; }
