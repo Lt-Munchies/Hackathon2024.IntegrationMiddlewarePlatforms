@@ -27,3 +27,15 @@
 .file-drop-area p {
   margin-top: 10px;
 }
+
+.account-selection-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.account-selection-card {
+  width: 300px;
+}
+

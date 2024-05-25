@@ -1,20 +1,44 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from "../services/api.service";
+import {Account} from "../Models/Account";
 
 @Component({
   selector: 'app-pay',
   templateUrl: './pay.component.html',
   styleUrl: './pay.component.css'
 })
-export class PayComponent {
+export class PayComponent implements OnInit {
 
-  constructor() {
+  accounts: Account[] = [];
+  selectedAccount?: Account;
+
+  constructor(private service: ApiService) {
     this.fileInput = document.createElement('input');
     this.fileInput.type = 'file';
     this.fileInput.addEventListener('change', this.onFileSelected.bind(this));
   }
 
+  ngOnInit(): void {
+        this.service.getAccounts().subscribe(x => {
+          this.accounts = x.data.accounts;
+          this.accounts = [
+            {
+              accountNumber: '0123',
+              accountName: 'Test',
+              accountId: '',
+              referenceName: '',
+              productName: ''
+            }
+          ]
+        });
+    }
+
   files: File[] = [];
   fileInput: HTMLInputElement;
+
+  onSelectAccount() {
+
+  }
 
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
